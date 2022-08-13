@@ -1,0 +1,17 @@
+package migrations
+
+import "github.com/go-rel/rel"
+
+// MigrateCreate{{Table}} definition
+func MigrateCreate{{Table}}(schema *rel.Schema) {
+	schema.CreateTable("{{TableName}}", func(t *rel.Table) {
+		t.ID("id")
+		t.DateTime("created_at")
+		t.DateTime("updated_at")
+	})
+}
+
+// RollbackCreate{{Table}} definition
+func RollbackCreate{{Table}}(schema *rel.Schema) {
+	schema.DropTable("{{TableName}}")
+}
